@@ -4,7 +4,6 @@ const PORT = process.env.PORT;
 const app = express();
 
 app.get('/', (req, res) => {
-  debugger;
   res.json({ message: 'Welcome to the Support Center' });
 });
 

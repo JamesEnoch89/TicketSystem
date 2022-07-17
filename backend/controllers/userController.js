@@ -68,6 +68,7 @@ const getCurrentUser = asyncHandler(async (req, res) => {
     email: req.user.email,
   };
   res.status(200).json(user);
+  console.log('test');
 });
 
 const generateToken = (id) => {

@@ -12,6 +12,7 @@
   "author": "James Enoch",
   "license": "MIT",
   "dependencies": {
+    "@types/react-native": "^0.69.3",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "concurrently": "^7.2.2",

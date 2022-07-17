@@ -7,7 +7,7 @@ const {
   getCurrentUser,
 } = require('../controllers/userController');
 
-router.post('/register', registerUser);
+router.post('/register222', registerUser);
 router.post('/login', loginUser);
 router.get('/user', protectRoute, getCurrentUser);
 

@@ -42,7 +42,6 @@ function Register(props) {
   };
 
   const onSubmit = (e) => {
-    debugger;
     e.preventDefault();
     if (password !== confirmedPassword) {
       toast.error('passwords do not match!');

@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { useSelector, useDispatch } from 'react-redux';
 import { register, reset } from '../features/auth/authSlice';
 
-function Register(props) {
+function Register() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,7 +27,8 @@ function Register(props) {
       toast.error(message);
     }
 
-    if (isSuccess || user) {
+    if (isSuccess && user) {
+      toast.success('User registered successfully!');
       navigate('/user');
     }
 

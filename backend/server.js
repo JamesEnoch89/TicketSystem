@@ -13,7 +13,7 @@ app.use;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/', (req, res) => {
+app.get('/register', (req, res) => {
   res.json({ message: 'Welcome to the Support Center' });
 });
 

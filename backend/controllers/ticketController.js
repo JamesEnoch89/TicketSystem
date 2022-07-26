@@ -65,8 +65,68 @@ const createTicket = asyncHandler(async (req, res) => {
   res.status(201).json(ticket);
 });
 
+const deleteTicket = asyncHandler(async (req, res) => {
+  // get user via id in the jwt
+  const user = await User.findById(req.user.id);
+
+  if (!user) {
+    res.status(401);
+    throw new Error('User not found!');
+  }
+
+  const ticket = await Ticket.findById(req.params.id);
+
+  if (!ticket) {
+    res.status(404);
+    throw new Error('Ticket not found');
+  }
+
+  if (ticket.user.toString() !== req.user.id) {
+    res.status(401);
+    throw new Error('Not authorized to view this ticket');
+  }
+
+  await ticket.remove();
+
+  res.status(200).json({ success: true });
+});
+
+const updateTicket = asyncHandler(async (req, res) => {
+  // get user via id in the jwt
+  const user = await User.findById(req.user.id);
+
+  if (!user) {
+    res.status(401);
+    throw new Error('User not found!');
+  }
+
+  const ticket = await Ticket.findById(req.params.id);
+
+  if (!ticket) {
+    res.status(404);
+    throw new Error('Ticket not found');
+  }
+
+  if (ticket.user.toString() !== req.user.id) {
+    res.status(401);
+    throw new Error('Not authorized to view this ticket');
+  }
+
+  const updatedTicket = await Ticket.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {
+      new: true,
+    }
+  );
+
+  res.status(200).json(updatedTicket);
+});
+
 module.exports = {
   getTickets,
   getTicket,
   createTicket,
+  deleteTicket,
+  updateTicket,
 };

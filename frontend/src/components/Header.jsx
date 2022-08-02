@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { reset, logout } from '../features/auth/authSlice';
 
 function Header(props) {
-  debugger;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);

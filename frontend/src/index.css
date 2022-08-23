@@ -271,8 +271,13 @@ h3 {
 }
 
 .ticket-page .btn-block {
-  width: 100%;
+  width: 25%;
   margin-top: 30px;
+}
+
+.ticket-page .btn-center {
+  display: flex;
+  justify-content: center;
 }
 
 .ticket-desc {
